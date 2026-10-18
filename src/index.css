@@ -1,0 +1,64 @@
+/* Arion AI OS — Soft Beige Theme (Nogaps style) */
+:root {
+  font-family: Inter, Poppins, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #3D3229;
+  background: #F7F1EB;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+
+  /* Theme tokens */
+  --bg-main: #F7F1EB;
+  --bg-sidebar: #F3EBE3;
+  --bg-card: #FFFFFF;
+  --bg-soft: #F0E6D8;
+  --primary: #A67C52;
+  --primary-dark: #8B6540;
+  --primary-light: #D4B896;
+  --primary-soft: #F0E6D8;
+  --text-main: #3D3229;
+  --text-muted: #8B7E72;
+  --line: #EDE4D9;
+  --shadow: 0 4px 20px rgba(166, 124, 82, 0.08);
+  --shadow-hover: 0 8px 28px rgba(166, 124, 82, 0.12);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --green: #2F6B4F;
+  --red: #B42332;
+  --amber: #C77713;
+}
+
+* { box-sizing: border-box; }
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--bg-main);
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+::selection {
+  color: var(--text-main);
+  background: var(--primary-soft);
+}
