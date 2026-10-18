@@ -1,8 +1,7 @@
-/* Arion AI OS — Soft Beige Theme (Nogaps style) */
+/* Arion AI OS — design tokens, light + dark */
+
 :root {
-  font-family: Inter, Poppins, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #3D3229;
-  background: #F7F1EB;
+  font-family: "Plus Jakarta Sans", Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
   color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -10,55 +9,139 @@
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
 
-  /* Theme tokens */
-  --bg-main: #F7F1EB;
-  --bg-sidebar: #F3EBE3;
-  --bg-card: #FFFFFF;
+  /* surfaces */
+  --bg-main: #F6F1EB;
+  --bg-sidebar: #F1E9E0;
   --bg-soft: #F0E6D8;
+  --bg-elevated: #FFFFFF;
+  --panel: #FFFFFF;
+  --panel-light: #FBF7F2;
+
+  /* ink */
+  --text-main: #2E2620;
+  --text-muted: #8A7C6E;
+  --text-faint: #B3A493;
+
+  /* lines */
+  --line: #E9DFD3;
+  --line-strong: #DDD0C0;
+
+  /* brand */
   --primary: #A67C52;
   --primary-dark: #8B6540;
   --primary-light: #D4B896;
   --primary-soft: #F0E6D8;
-  --text-main: #3D3229;
-  --text-muted: #8B7E72;
-  --line: #EDE4D9;
-  --shadow: 0 4px 20px rgba(166, 124, 82, 0.08);
-  --shadow-hover: 0 8px 28px rgba(166, 124, 82, 0.12);
-  --radius: 16px;
-  --radius-sm: 12px;
+  --on-primary: #FFFFFF;
+
+  /* status */
   --green: #2F6B4F;
+  --green-soft: #E7F3EC;
   --red: #B42332;
-  --amber: #C77713;
+  --red-soft: #FCEEEF;
+  --amber: #A9660E;
+  --amber-soft: #FBF0DC;
+  --blue: #2B5C7A;
+  --blue-soft: #E6F0F6;
+
+  /* effects */
+  --shadow: 0 1px 2px rgba(46, 38, 32, 0.04), 0 8px 24px rgba(46, 38, 32, 0.06);
+  --shadow-hover: 0 2px 4px rgba(46, 38, 32, 0.06), 0 16px 36px rgba(46, 38, 32, 0.10);
+  --shadow-pop: 0 24px 64px rgba(46, 38, 32, 0.18);
+  --ring: 0 0 0 3px rgba(166, 124, 82, 0.20);
+
+  --radius: 18px;
+  --radius-sm: 12px;
+  --radius-xs: 9px;
+
+  --font-display: "Sora", "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: "Plus Jakarta Sans", Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-main: #131110;
+  --bg-sidebar: #191614;
+  --bg-soft: #241F1B;
+  --bg-elevated: #1C1917;
+  --panel: #1C1917;
+  --panel-light: #221E1B;
+
+  --text-main: #F4EDE5;
+  --text-muted: #A6937F;
+  --text-faint: #6E6055;
+
+  --line: #2C2622;
+  --line-strong: #3A322C;
+
+  --primary: #C89B6B;
+  --primary-dark: #DDB289;
+  --primary-light: #7A5C3C;
+  --primary-soft: #241F1B;
+  --on-primary: #1A1512;
+
+  --green: #7BC49C;
+  --green-soft: #16241D;
+  --red: #F08A8A;
+  --red-soft: #2A1718;
+  --amber: #E0AE60;
+  --amber-soft: #241C10;
+  --blue: #86BCD9;
+  --blue-soft: #14212A;
+
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.45), 0 16px 36px rgba(0, 0, 0, 0.45);
+  --shadow-pop: 0 24px 64px rgba(0, 0, 0, 0.6);
+  --ring: 0 0 0 3px rgba(200, 155, 107, 0.25);
 }
 
 * { box-sizing: border-box; }
+
 html {
   min-width: 320px;
   min-height: 100%;
   background: var(--bg-main);
 }
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   background: var(--bg-main);
   color: var(--text-main);
+  transition: background 0.3s ease, color 0.3s ease;
 }
-button, input, select, textarea { font: inherit; }
+
+button, input, select, textarea { font: inherit; color: inherit; }
 button { cursor: pointer; }
-button:disabled { opacity: 0.6; cursor: not-allowed; }
+button:disabled { opacity: 0.55; cursor: not-allowed; }
+
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid var(--primary-light);
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
-#root {
-  min-height: 100vh;
-  width: 100%;
+
+#root { min-height: 100vh; width: 100%; }
+
+::selection { color: var(--text-main); background: var(--primary-light); }
+
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 99px;
+  border: 3px solid var(--bg-main);
 }
-::selection {
-  color: var(--text-main);
-  background: var(--primary-soft);
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
